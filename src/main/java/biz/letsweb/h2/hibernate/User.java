@@ -1,6 +1,7 @@
 package biz.letsweb.h2.hibernate;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,7 +18,11 @@ public class User implements Serializable {
     @Id
     @GeneratedValue
     private long id;
+    
+    @Column(length = 50)
     private String name;
+    
+    @Column(length = 50)
     private String surname;
 
     public User() {

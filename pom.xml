@@ -77,13 +77,32 @@
             <version>1.2.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok-maven -->
- <dependency>
-		<groupId>org.projectlombok</groupId>
-		<artifactId>lombok</artifactId>
-		<version>1.16.10</version>
-		<scope>provided</scope>
-	</dependency>
-
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.10</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.fluttercode.datafactory</groupId>
+            <artifactId>datafactory</artifactId>
+            <version>0.8</version>
+            <type>jar</type>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>0.11</version>
+        </dependency>
+       
+        <dependency>
+            <groupId>org.dbunit</groupId>
+            <artifactId>dbunit</artifactId>
+            <version>2.2</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -103,6 +122,28 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>3.5.3</version>
+                <configuration>                  
+                    <propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>
+                    <changeLogFile>src/main/resources/liquibase/changelogs/setup.xml</changeLogFile>
+                    <driver>org.h2.Driver</driver>
+                    <!--The server id in settings.xml to use when authenticating with.-->
+                    <server>h2-docker-local</server>
+                    <url>jdbc:h2:tcp://localhost:9092/testdb</url>
+                    <tag>${project.version}</tag>
+                </configuration>                
+                <executions>
+                    <execution>
+                        <phase>process-resources</phase>                                                                  
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin> 	
         </plugins>
     </build>
 </project>

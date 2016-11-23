@@ -1,12 +1,15 @@
 package biz.letsweb.h2.hibernate;
 
+import com.github.javafaker.ChuckNorris;
+import com.github.javafaker.Faker;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
+import java.util.Locale;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.fastnate.data.AbstractDataProvider;
+import org.fluttercode.datafactory.impl.DataFactory;
 
 /**
  *
@@ -23,15 +26,17 @@ public class Populator extends AbstractDataProvider {
 
     /**
      * Create the entities.
+     *
      * @throws java.io.IOException
      */
     @Override
     public void buildEntities() throws IOException {
+        DataFactory df = new DataFactory();
+        Faker faker = new Faker();
         log.info("testing XXX");
-        this.entities.add(new User("Example Entity", "yyy"));
-
-        User entity2 = new User("Example Entity 2", "ccc");
-        this.entities.add(entity2);
+        for (int i = 0; i < 100; i++) {
+            this.entities.add(new User(faker.name().firstName(), faker.name().lastName()));
+        }
     }
 
 }

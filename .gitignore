@@ -2,3 +2,4 @@ target
 *.db
 *.dbf
 nbproject
+nbactions.xml

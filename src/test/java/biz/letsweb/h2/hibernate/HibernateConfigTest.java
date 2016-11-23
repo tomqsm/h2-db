@@ -1,5 +1,6 @@
 package biz.letsweb.h2.hibernate;
 
+import java.io.IOException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -29,7 +30,9 @@ public class HibernateConfigTest {
     }
     
     @Before
-    public void setUp() {
+    public void setUp() throws IOException {
+        Populator testData = new Populator();
+        testData.buildEntities();
     }
     
     @After
@@ -50,6 +53,7 @@ public class HibernateConfigTest {
         System.out.println("found: " + foundUser);
         
         transaction.commit();
+        session.close();
     }
     
 }

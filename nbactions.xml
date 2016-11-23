@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+    <action>
+        <actionName>CUSTOM-generate data</actionName>
+        <displayName>generate data</displayName>
+        <goals>
+            <goal>fastnate:import-data</goal>
+        </goals>
+    </action>
+</actions>

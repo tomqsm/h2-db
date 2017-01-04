@@ -9,3 +9,4 @@ Project uses `<server>` username and password from `.m2/settings.xm` for data ba
 
 `mvn liquibase:rollback -Dliquibase.rollbackCount=1`
 
+`mvn liquibase:dropAll liquibase:update` when problem with checksum and you can afford dropping all tables

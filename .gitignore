@@ -3,3 +3,4 @@ target
 *.dbf
 nbproject
 nbactions.xml
+/nohup.out

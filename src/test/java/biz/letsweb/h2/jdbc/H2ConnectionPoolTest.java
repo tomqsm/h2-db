@@ -48,7 +48,7 @@ public class H2ConnectionPoolTest {
     @Test
     public void testMakeDataSource() {
         LOG.info("makeDataSource");
-        try (Connection conn = CONNECTION_POOL.getConnection();) {
+        try (Connection conn = CONNECTION_POOL.getConnection()) {
             conn.prepareStatement("");
         } catch (SQLException ex) {
             LOG.error("Error during getting a connection. {}", ex);

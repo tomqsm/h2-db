@@ -132,7 +132,7 @@
                     <driver>org.h2.Driver</driver>
                     <!--The server id in settings.xml to use when authenticating with.-->
                     <server>h2-docker-local</server>
-                    <url>jdbc:h2:tcp://localhost:9092/testdb</url>
+                    <url>jdbc:h2:tcp://jozka:9092/toksdb</url>
                     <tag>${project.version}</tag>
                 </configuration>                
                 <executions>

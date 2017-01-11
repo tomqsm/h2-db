@@ -3,3 +3,5 @@ target
 *.dbf
 nbproject
 nbactions.xml
+.idea/*
+*.iml
